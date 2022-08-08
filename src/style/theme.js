@@ -2,7 +2,8 @@ const theme = {
     palette:
     {
         darkPurple: '#7F6E9A',
-        lightPurple: '#E1CDFE'
+        mediumPurple: "#AF9CCB",
+        lightPurple: '#E1CDFE',
     }
 }
 
