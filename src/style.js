@@ -12,6 +12,7 @@ export const Container = styled.div`
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    gap: 10%;
 `
 
 export const Header = styled.p`
@@ -22,7 +23,21 @@ export const Header = styled.p`
 `
 
 export const Body = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 3%;
+    gap: 3%;
+`
+
+export const LeftContainer = styled.div`
     display: flex;
-    align-items: flex-start;
-    justify-content: space-around;
+    flex-direction: column;
+    width: 100%;
+    gap: 2%;
+`
+
+export const DataContainers = styled.div`
+    display: flex;
+    width: 100%;
+    gap: 10%;
 `
