@@ -13,25 +13,32 @@ export const Container = styled.div`
 ` 
 
 export const IconContainer = styled.div`
-    height: 60px;
-    width: 60px;
+    height: 50px;
+    width: 50px;
+    position: relative;
     border-radius: 7px;
     border: none;
     display: flex;
     justify-content: center;
+    align-items: center;
     background: linear-gradient(135deg, #7F6E9A 0%, #AF9CCB 0.01%, #E1CDFE 100%);
     color: white;
     font-size: 30px;
+    bottom: 20px;
 `
 
 export const Title = styled.p`
     font-size: 20px;
     font-family: 'Lato', sans-serif;
     font-weight: 700;
+    position: relative;
+    bottom: 15%;
 `
 
 export const Body = styled.p`
     font-size: 13px;
     font-family: 'Lato', sans-serif;
     font-weight: 400;
+    position: relative;
+    bottom: 10%;
 `
