@@ -4,6 +4,7 @@ import theme from './style/theme';
 import {ThemeProvider} from 'styled-components';
 import TaskBox from './components/taskBox';
 import DataBox from './components/dataBox';
+import AddTask from './components/addTask';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
                   text={"Tarefas a completar"}
                 />
               </Style.DataContainers>
+              <AddTask/>
             </Style.LeftContainer>
             <TaskBox></TaskBox>
           </Style.Body>
