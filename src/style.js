@@ -6,13 +6,14 @@ export const Wrap = styled.div `
 `
 
 export const Container = styled.div`
-    height: 100vh;
-    width: 100vw;
+    min-height: 100vh;
+    max-width: 100vw;
     background: linear-gradient(112.68deg, #F1DFF7 0%, rgba(218, 252, 252, 0.3) 100%);
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    gap: 10%;
+    gap: 60px;
+    padding-bottom: 20px;
 `
 
 export const Header = styled.p`
@@ -27,13 +28,18 @@ export const Body = styled.div`
     grid-template-columns: 1fr 1fr;
     padding: 0 3%;
     gap: 3%;
+    @media screen and (max-width: 900px) {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
 `
 
 export const LeftContainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    gap: 2%;
+    gap: 30px;
 `
 
 export const DataContainers = styled.div`
