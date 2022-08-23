@@ -29,37 +29,49 @@ export const Icon = styled.p`
     font-size: 17px;
 `
 
+export const FormContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+`
+
 export const InputBox= styled.div`
     width: 100%;
     box-sizing: border-box;
-    /* position: relative; */
-    /* display: flex;
+    position: relative;
+    display: flex;
     flex-direction: column;
-    &:focus{
-        border-color: ${props => props.theme.colors.mediumPurple};
-    } */
+    /* align-items: center; */
+    /* justify-content: center; */
 `
 
 export const Input = styled.input`
-    /* width: 100%;
-    border: none;
-    border-radius: 7px;
-    box-sizing: border-box;
-    padding: 3%; */
+    width: 100%;
     top: 0;
     left: 0;
     outline: none;
     z-index: 3;
+    border: none;
+    border-radius: 7px;
+    padding: 2%;
+    box-sizing: border-box;
+    &:focus {
+        border: 1px solid ${props => props.theme.palette.darkPurple};
+    }
 `
 
-export const Label = styled.p`
-    /* font-size: 12px;
-    position: absolute;
+export const Label = styled.label`
+    font-size: ${props => props.isFocus ? "15px" : '10px'};
     color: ${props => props.theme.palette.darkPurple};
-    top: ${props => props.isSelected ? "10px" : "18px"};
-    left: 3%;
+    top: ${props => props.isFocus ? "50px" : '20px'};
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    user-select: none;
+    font-family: inherit;
     transition: 300ms;
-    z-index: 1; */
 `
 
 export const Button = styled.button`
@@ -70,6 +82,7 @@ export const Button = styled.button`
     color: white;
     font-size: 13px;
     border: none;
+    font-family: 'Lato' , sans-serif;
     border-radius: 7px;
     background-color: ${props => props.theme.palette.darkPurple};
     height: 44px;
