@@ -5,6 +5,8 @@ import {ThemeProvider} from 'styled-components';
 import TaskBox from './components/taskBox';
 import DataBox from './components/dataBox';
 import AddTask from './components/addTask';
+import {FaCheck} from 'react-icons/fa';
+import {CgClipboard} from 'react-icons/cg'
 
 function App() {
   return (
@@ -17,12 +19,12 @@ function App() {
             <Style.LeftContainer>
               <Style.DataContainers>
                 <DataBox
-                  icon={"M"}
+                  icon={<FaCheck/>}
                   title={"2"}
                   text={"Tarefas concluídas"}
                 />
                 <DataBox
-                  icon={"M"}
+                  icon={<CgClipboard/>}
                   title={"2"}
                   text={"Tarefas a completar"}
                 />
