@@ -1,4 +1,5 @@
 import * as Style from './style';
+import { useState } from 'react';
 import{ GlobalStyle } from './style/global';
 import theme from './style/theme';
 import {ThemeProvider} from 'styled-components';
@@ -9,6 +10,8 @@ import {FaCheck} from 'react-icons/fa';
 import {CgClipboard} from 'react-icons/cg'
 
 function App() {
+  const [taskList, setTaskList] = useState([]);
+
   return (
     <>
       <ThemeProvider theme={theme}>
