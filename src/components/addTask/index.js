@@ -3,8 +3,7 @@ import { useState , useRef } from 'react';
 import { Formik } from 'formik';
 import {MdKeyboardArrowDown, MdKeyboardArrowUp} from 'react-icons/md'
 
-export default function AddTask(){
-    const [title, setTitle] = useState("");
+export default function AddTask(props){
     const [isSelected, setIsSelected] = useState({
         title: false,
         descr: false
@@ -20,6 +19,17 @@ export default function AddTask(){
 
     function handleFocus(name,value){
         setIsSelected({...isSelected, [name]: value})
+    }
+
+    function submitForm(values){
+        try{
+            const data = {
+                title : values.title,
+                descr: values.descr
+            }
+        }catch(error){
+
+        }
     }
 
     return(
@@ -41,7 +51,7 @@ export default function AddTask(){
                     handleSubmit,
                     values
                 })=>(
-                    <Style.FormContainer ref={ref}>
+                    <Style.FormContainer onSubmit={handleSubmit}  ref={ref}>
                         <Style.InputBox>
                             <Style.Input
                                 type='text'
@@ -74,7 +84,7 @@ export default function AddTask(){
                             />
                             <Style.Label isFocus={isSelected.descr}>Descrição</Style.Label>
                         </Style.InputBox>
-                        <Style.Button>Criar</Style.Button>
+                        <Style.Button type="submit" >Criar</Style.Button>
                     </Style.FormContainer>
                 )}
             </Formik>

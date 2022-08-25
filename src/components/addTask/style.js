@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     width: 100%;
-    height: ${props => props.visible ? "fit-content" : "80px"};
+    height: ${props => props.visible ? "350px" : "70px"};
     background-color: ${props => props.theme.palette.lightPurple};
     border: none;
     border-radius: 10px;
@@ -13,7 +13,7 @@ export const Container = styled.div`
     font-family: 'Lato' , sans-serif;
     gap: 1.2rem;
     overflow: hidden;
-    transition: ease-in 300ms;
+    transition: 300ms;
 `
 
 export const Header = styled.div`
