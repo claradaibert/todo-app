@@ -24,7 +24,7 @@ function App() {
                 <DataBox
                   icon={<FaCheck/>}
                   title={"2"}
-                  text={"Tarefas concluídas"}
+                  text={"Teste 1"}
                 />
                 <DataBox
                   icon={<CgClipboard/>}
