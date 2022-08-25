@@ -28,7 +28,7 @@ function App() {
                 />
                 <DataBox
                   icon={<CgClipboard/>}
-                  title={"2"}
+                  title={"Teste 2"}
                   text={"Tarefas a completar"}
                 />
               </Style.DataContainers>
