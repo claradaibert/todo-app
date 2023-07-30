@@ -19,7 +19,7 @@ export const Container = styled.div`
 export const Header = styled.div`
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
 `
 
 export const Title = styled.p `
@@ -33,7 +33,7 @@ export const Icon = styled.p`
     cursor: pointer;
 `
 
-export const FormContainer = styled.div`
+export const FormContainer = styled.form`
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -46,8 +46,6 @@ export const InputBox= styled.div`
     position: relative;
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
-    /* justify-content: center; */
 `
 
 export const Input = styled.input`
@@ -62,6 +60,7 @@ export const Input = styled.input`
     padding: 20px 15px 10px 10px;
     box-sizing: border-box;
     z-index: 1;
+    font-family: inherit ;
 `
 
 export const TextArea = styled.textarea`
@@ -78,6 +77,7 @@ export const TextArea = styled.textarea`
     box-sizing: border-box;
     z-index: 1;
     resize: none;
+    font-family: inherit ;
 `
 
 export const Label = styled.label`
@@ -112,4 +112,8 @@ export const Button = styled.button`
     height: 44px;
     font-weight: 400;
     cursor: pointer;
+    &:hover{
+        background-color: ${props => props.theme.palette.mediumPurple};
+        transition: 1s;
+    }
 `

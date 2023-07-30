@@ -1,93 +1,48 @@
-import * as Style from './style';
-import { useState , useRef } from 'react';
-import { Formik } from 'formik';
-import {MdKeyboardArrowDown, MdKeyboardArrowUp} from 'react-icons/md'
+import * as Style from "./style";
+import { useState } from "react";
+import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
+import FormComponent from "./FormComponent";
 
-export default function AddTask(props){
-    const [isSelected, setIsSelected] = useState({
-        title: false,
-        descr: false
-    });
-    const ref = useRef();
-    const [visible, setVisible] = useState(false);
+export default function AddTask({ taskList, setTaskList }) {
+  const [isSelected, setIsSelected] = useState({
+    title: false,
+    description: false,
+  });
+  const [ComponentVisible, setComponentVisible] = useState(false);
 
-    function handleContainer(e){
-        if (!ref?.current?.contains(e.target)){
-            setVisible(!visible);
-        }
+  function handleComponentVisibility() {
+    setComponentVisible(!ComponentVisible);
+  }
+
+  function handleFocus(name, value) {
+    setIsSelected({ ...isSelected, [name]: value });
+  }
+
+  function SubmitForm(values) {
+    try {
+      const data = {
+        title: values.title,
+        description: values.description,
+      };
+      setTaskList([...taskList, data]);
+    } catch (error) {
+      console.log("deu erro");
     }
+  }
 
-    function handleFocus(name,value){
-        setIsSelected({...isSelected, [name]: value})
-    }
-
-    function submitForm(values){
-        try{
-            const data = {
-                title : values.title,
-                descr: values.descr
-            }
-        }catch(error){
-
-        }
-    }
-
-    return(
-        <Style.Container onClick={handleContainer} visible={visible}>
-            <Style.Header>
-                <Style.Title>Adicione uma tarefa</Style.Title>
-                <Style.Icon><MdKeyboardArrowDown/></Style.Icon>
-            </Style.Header>
-            <Formik
-                initialValues={{
-                    title: "",
-                    descr: ""
-                }}
-                onSubmit={values => console.log(values)}
-            >
-                {({
-                    handleChange,
-                    handleBlur,
-                    handleSubmit,
-                    values
-                })=>(
-                    <Style.FormContainer onSubmit={handleSubmit}  ref={ref}>
-                        <Style.InputBox>
-                            <Style.Input
-                                type='text'
-                                name="title"
-                                value={values.title}
-                                onChange={handleChange}
-                                onBlur={(e)=>{
-                                    handleBlur(e);
-                                    handleFocus(e.target.name, false);
-                                }}
-                                onFocus={(e)=>{
-                                    handleFocus(e.target.name, true)
-                                }}
-                            />
-                            <Style.Label isFocus={isSelected.title}>Título</Style.Label>
-                        </Style.InputBox>
-                        <Style.InputBox>
-                            <Style.TextArea
-                                type='text'
-                                name="descr"
-                                value={values.descr}
-                                onChange={handleChange}
-                                onBlur={(e)=>{
-                                    handleBlur(e);
-                                    handleFocus(e.target.name, false);
-                                }}
-                                onFocus={(e)=>{
-                                    handleFocus(e.target.name, true)
-                                }}
-                            />
-                            <Style.Label isFocus={isSelected.descr}>Descrição</Style.Label>
-                        </Style.InputBox>
-                        <Style.Button type="submit" >Criar</Style.Button>
-                    </Style.FormContainer>
-                )}
-            </Formik>
-        </Style.Container>
-    )
+  return (
+    <Style.Container visible={ComponentVisible}>
+      <Style.Header onClick={handleComponentVisibility}>
+        <Style.Title>Adicione uma tarefa</Style.Title>
+        <Style.Icon>
+          <MdKeyboardArrowDown />
+        </Style.Icon>
+      </Style.Header>
+      <FormComponent
+        SubmitForm={SubmitForm}
+        handleFocus={handleFocus}
+        isSelected={isSelected}
+      />
+    </Style.Container>
+  );
 }
