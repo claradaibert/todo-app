@@ -1,42 +1,15 @@
-import * as Style from './style';
-import { useState } from 'react';
 import{ GlobalStyle } from './style/global';
 import theme from './style/theme';
 import {ThemeProvider} from 'styled-components';
-import TaskBox from './components/taskBox';
-import DataBox from './components/dataBox';
-import AddTask from './components/addTask';
-import {FaCheck} from 'react-icons/fa';
-import {CgClipboard} from 'react-icons/cg'
+import MainPage from './pages/MainPage';
 
 function App() {
-  const [taskList, setTaskList] = useState([]);
 
   return (
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle/>
-        <Style.Container>
-          <Style.Header>toDo com test de push</Style.Header>
-          <Style.Body>
-            <Style.LeftContainer>
-              <Style.DataContainers>
-                <DataBox
-                  icon={<FaCheck/>}
-                  title={"2"}
-                  text={"Teste 1"}
-                />
-                <DataBox
-                  icon={<CgClipboard/>}
-                  title={"Teste 2"}
-                  text={"Tarefas a completar"}
-                />
-              </Style.DataContainers>
-              <AddTask/>
-            </Style.LeftContainer>
-            <TaskBox></TaskBox>
-          </Style.Body>
-        </Style.Container>
+        <MainPage/>
       </ThemeProvider>
     </>
   );
