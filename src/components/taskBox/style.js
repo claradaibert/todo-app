@@ -12,7 +12,7 @@ export const Container = styled.div`
 `
 
 export const Header = styled.p`
-    color: ${props => props.theme.palette.darkPurple};
+    color: ${props => props.theme.darkPurple};
     font-size: 20px;
     font-weight: 700;
     font-family: "Lato", sans-serif;
