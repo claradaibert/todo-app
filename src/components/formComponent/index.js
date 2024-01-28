@@ -6,7 +6,7 @@ import Input from "../Input";
 
 import { FormContainer } from "./style";
 
-function FormComponent({ setTaskList }) {
+function FormComponent({taskList, setTaskList }) {
   // Local refs
   const descriptionRef = useRef(null);
 
@@ -16,7 +16,6 @@ function FormComponent({ setTaskList }) {
   });
 
   const SubmitForm = async () => {
-    console.log(formValues, "formValues");
     try {
       const schema = yup.object().shape({
         title: yup
@@ -35,7 +34,11 @@ function FormComponent({ setTaskList }) {
         throw "failed validation";
       });
 
-      setTaskList(prev => prev.push(formValues));
+      setTaskList(prev => [...prev, formValues]);
+      setFormValues({
+        title: "",
+        description: "",
+      })
     }catch {
       console.log('error');
     }
