@@ -1,20 +1,20 @@
 import { useState } from 'react';
 import TaskBox from '../../components/taskBox';
-import DataBox from '../../components/dataBox';
+import DataBox from '../../components/DataBox';
 import AddTask from '../../components/addTask';
 import {FaCheck} from 'react-icons/fa';
 import {CgClipboard} from 'react-icons/cg';
-import * as Style from './style';
+import { Container } from './style';
 
-export default function MainPage() {
+function MainPage() {
     const [taskList, setTaskList] = useState([]);
 
     return (
-        <Style.Container>
-          <Style.Header>toDo</Style.Header>
-          <Style.Body>
-            <Style.LeftContainer>
-              <Style.DataContainers>
+        <Container>
+          <div className='header'>toDo</div>
+          <div className='pageBody'>
+            <div className='leftContainer'>
+              <div className='dataContainer'>
                 <DataBox
                   icon={<FaCheck/>}
                   title={"2"}
@@ -25,14 +25,16 @@ export default function MainPage() {
                   title={taskList.length}
                   text={"Tarefas a completar"}
                 />
-              </Style.DataContainers>
+              </div>
               <AddTask
                 taskList={taskList}
                 setTaskList={setTaskList}
               />
-            </Style.LeftContainer>
+            </div>
             <TaskBox></TaskBox>
-          </Style.Body>
-        </Style.Container>
+          </div>
+        </Container>
     )
 }
+
+export default MainPage;
