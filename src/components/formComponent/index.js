@@ -1,61 +1,47 @@
-import { useState } from "react";
-import { Formik } from "formik";
+import { useState, useRef } from "react";
 
-import InputComponent from "./InputComponent";
+import Input from "../Input";
 
-import * as Style from "./style";
+import { FormContainer } from "./style";
 
-export default function FormComponent({ taskList, setTaskList }) {
-  const [isInputSelected, setIsInputSelected] = useState({
-    title: false,
-    description: false,
+function FormComponent({ taskList, setTaskList }) {
+  // Local refs
+  const descriptionRef = useRef(null);
+
+  const [formValues, setFormValues] = useState({
+    title: "",
+    description: "",
   });
 
-  const handleFocus = (name, value) => {
-    setIsInputSelected({ ...isInputSelected, [name]: value });
-  };
-
-  const SubmitForm = (formData) => {
-    const newListItem = formData;
-
-    newListItem.completed = false;
-
-    setTaskList((prevList) => prevList.push(newListItem));
+  const SubmitForm = () => {
+    console.log(formValues, "formValues");
   };
 
   return (
-    <Formik
-      initialValues={{
-        title: "",
-        description: "",
-      }}
-      onSubmit={(values) => {
-        SubmitForm(values);
-      }}
-    >
-      {({ handleChange, handleBlur, handleSubmit, values }) => (
-        <Style.FormContainer onSubmit={handleSubmit}>
-          <InputComponent
-            name={"title"}
-            value={values.title}
-            inputTitle={"Título"}
-            handleChange={handleChange}
-            handleBlur={handleBlur}
-            handleFocus={handleFocus}
-            isInputSelected={isInputSelected.title}
-          />
-          <InputComponent
-            name={"description"}
-            value={values.description}
-            inputTitle={"Descrição"}
-            handleChange={handleChange}
-            handleBlur={handleBlur}
-            handleFocus={handleFocus}
-            isInputSelected={isInputSelected.description}
-          />
-          <Style.Button type="submit">Criar</Style.Button>
-        </Style.FormContainer>
-      )}
-    </Formik>
+    <FormContainer>
+      <Input
+        name="title"
+        value={formValues.title}
+        type="text"
+        label="Título"
+        multiline={false}
+        handleChange={(e) => setFormValues({ ...formValues, title: e })}
+        onEnterKey={() => descriptionRef.current.focus()}
+      />
+      <Input
+        ref={descriptionRef}
+        name="description"
+        value={formValues.description}
+        type="text"
+        label="Descrição"
+        multiline={true}
+        handleChange={(e) => setFormValues({ ...formValues, description: e })}
+      />
+      <button className="actionButton" onClick={() => SubmitForm()}>
+        ENVIAR
+      </button>
+    </FormContainer>
   );
 }
+
+export default FormComponent;
