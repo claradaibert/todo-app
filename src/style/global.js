@@ -5,6 +5,19 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
         margin: 0;
         box-sizing: border-box;
+
+        ::-webkit-scrollbar {
+            width: 0.4rem;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: ${({theme}) => theme.light_purple};
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: ${({theme}) => theme.medium_purple};
+            border-radius: 10px;
+        }
     }
 
     .disable-text-selection {
