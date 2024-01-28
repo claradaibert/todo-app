@@ -16,7 +16,7 @@ export const Container = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: 30px;
   padding-bottom: 20px;
 
   .header {
