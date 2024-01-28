@@ -1,11 +1,9 @@
 import { Container } from "./style";
 
 function TaskCard({ task, setTaskList, taskList }) {
-
   const handleDelete = () => {
     const filteredTaskList = taskList.filter(
-      (item) =>
-        task.title !== item.title && task.description !== item.description
+      (item) => task.title !== item.title
     );
 
     setTaskList(filteredTaskList);
@@ -26,6 +24,7 @@ function TaskCard({ task, setTaskList, taskList }) {
         <button
           type="button"
           className="completeButton"
+          disabled={task.done}
           onClick={() => handleDoneTask()}
         >
           FEITO

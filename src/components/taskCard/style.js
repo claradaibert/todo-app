@@ -47,6 +47,11 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
     height: 2rem;
+
+    :disabled {
+      background-color: ${({ theme }) => theme.mediumPurple};
+      pointer-events: none;
+    }
   }
 
   .deleteButton {
