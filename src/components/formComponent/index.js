@@ -1,10 +1,12 @@
 import { useState, useRef } from "react";
+import * as yup from "yup";
+import { toast } from "react-toastify";
 
 import Input from "../Input";
 
 import { FormContainer } from "./style";
 
-function FormComponent({ taskList, setTaskList }) {
+function FormComponent({ setTaskList }) {
   // Local refs
   const descriptionRef = useRef(null);
 
@@ -13,8 +15,31 @@ function FormComponent({ taskList, setTaskList }) {
     description: "",
   });
 
-  const SubmitForm = () => {
+  const SubmitForm = async () => {
     console.log(formValues, "formValues");
+    try {
+      const schema = yup.object().shape({
+        title: yup
+          .string()
+          .strict()
+          .typeError("O título deve ser composto por caracteres alfanuméricos")
+          .required("Por favor informe o título da tarefa"),
+        description: yup.string().strict(),
+      });
+  
+      await schema.validate(formValues, { abortEarly: false }).catch((err) => {
+        err.inner.forEach((error) => {
+          toast.error(error.message);
+        });
+        // eslint-disable-next-line
+        throw "failed validation";
+      });
+
+      setTaskList(prev => prev.push(formValues));
+    }catch {
+      console.log('error');
+    }
+
   };
 
   return (
@@ -26,10 +51,8 @@ function FormComponent({ taskList, setTaskList }) {
         label="Título"
         multiline={false}
         handleChange={(e) => setFormValues({ ...formValues, title: e })}
-        onEnterKey={() => descriptionRef.current.focus()}
       />
       <Input
-        ref={descriptionRef}
         name="description"
         value={formValues.description}
         type="text"
@@ -37,7 +60,7 @@ function FormComponent({ taskList, setTaskList }) {
         multiline={true}
         handleChange={(e) => setFormValues({ ...formValues, description: e })}
       />
-      <button className="actionButton" onClick={() => SubmitForm()}>
+      <button type="button" className="sendButton" onClick={() => SubmitForm()}>
         ENVIAR
       </button>
     </FormContainer>

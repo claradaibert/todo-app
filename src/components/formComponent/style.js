@@ -7,7 +7,7 @@ export const FormContainer = styled.form`
   margin-top: 0.5rem;
   gap: 2rem;
 
-  .actionButton {
+  .sendButton {
     width: 100%;
     display: flex;
     justify-content: center;

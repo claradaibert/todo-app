@@ -15,6 +15,10 @@ export const Container = styled.div`
   overflow: hidden;
   transition: 300ms;
 
+  @media screen and (max-width: 900px) {
+    padding: 4%;
+  }
+
   .addTaskHeader {
     display: flex;
     justify-content: space-between;
