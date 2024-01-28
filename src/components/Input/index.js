@@ -10,12 +10,10 @@ function Input({
   type,
   multiline,
   onEnterKey,
-  ref,
 }) {
   return (
     <Container>
       <TextField
-        inputRef={ref}
         name={name}
         type={type}
         value={value}
