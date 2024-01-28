@@ -17,6 +17,10 @@ export const Container = styled.div`
     font-weight: 700;
     position: relative;
     bottom: 15%;
+
+    @media screen and (max-width: 900px) {
+      bottom: 20%;
+    }
   }
 
   .dataBody {
@@ -25,6 +29,10 @@ export const Container = styled.div`
     font-weight: 400;
     position: relative;
     bottom: 10%;
+
+    @media screen and (max-width: 900px) {
+      bottom: 15%;
+    }
   }
 `;
 
