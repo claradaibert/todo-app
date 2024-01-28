@@ -1,7 +1,9 @@
 import * as Style from "./style";
 import { useState } from "react";
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
-import FormComponent from "../formComponent";
+
+// Component import
+import FormComponent from "../FormComponent";
 
 export default function AddTask({ taskList, setTaskList }) {
   const [componentVisible, setComponentVisible] = useState(false);
@@ -17,7 +19,7 @@ export default function AddTask({ taskList, setTaskList }) {
 
   return (
     <Style.Container visible={componentVisible}>
-      <div className="header" onClick={handleComponentVisibility}>
+      <div className="addTaskHeader" onClick={handleComponentVisibility}>
         <div className="title">Adicione uma tarefa</div>
         <div className="icon">{renderArrowButton()}</div>
       </div>
