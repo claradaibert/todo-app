@@ -1,17 +1,23 @@
 import TaskCard from "../TaskCard";
 
-import * as Style from "./style";
+import { Container } from "./style";
 
 export default function TaskBox({ taskList, setTaskList }) {
-  console.log(taskList, 'taskList');
+
   return (
-    <Style.Container>
-      <Style.Header>Suas tarefas</Style.Header>
-      <div className="taskList">
-        {taskList.map((task) => (
-          <TaskCard task={task} taskList={taskList} setTaskList={setTaskList} />
-        ))}
+    <Container>
+      <div className="taskListHeader">Suas tarefas</div>
+      <div className="taskContainer">
+        <div className="taskList">
+          {taskList.map((task) => (
+            <TaskCard
+              task={task}
+              taskList={taskList}
+              setTaskList={setTaskList}
+            />
+          ))}
+        </div>
       </div>
-    </Style.Container>
+    </Container>
   );
 }
