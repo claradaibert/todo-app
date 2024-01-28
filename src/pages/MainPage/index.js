@@ -7,7 +7,26 @@ import {CgClipboard} from 'react-icons/cg';
 import { Container } from './style';
 
 function MainPage() {
-    const [taskList, setTaskList] = useState([]);
+    const [taskList, setTaskList] = useState([
+      {
+        title: 'Tarefa1',
+        description: 'Preciso lavar meu peixe',
+        done: false,
+      },
+      {
+        title: 'Passear com o cachorro',
+        description: '',
+        done: false,
+      },
+      {
+        title: 'Fazer exercício',
+        description: 'Aula de aeróbica',
+        done: false,
+      }
+    ]);
+    const completedTasks = taskList.filter(task => task.done);
+    console.log(completedTasks, 'completedTasks');
+    const undoneTasksNumber = taskList.length - completedTasks.length;
 
     return (
         <Container>
@@ -17,12 +36,12 @@ function MainPage() {
               <div className='dataContainer'>
                 <DataBox
                   icon={<FaCheck/>}
-                  title={"2"}
+                  title={completedTasks.length}
                   text={"Tarefas concluídas"}
                 />
                 <DataBox
                   icon={<CgClipboard/>}
-                  title={taskList.length}
+                  title={undoneTasksNumber}
                   text={"Tarefas a completar"}
                 />
               </div>
@@ -31,7 +50,10 @@ function MainPage() {
                 setTaskList={setTaskList}
               />
             </div>
-            <TaskBox></TaskBox>
+            <TaskBox
+              taskList={taskList}
+              setTaskList={setTaskList}
+            />
           </div>
         </Container>
     )
