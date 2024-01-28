@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 export const GlobalStyle = createGlobalStyle`
     *{
@@ -12,13 +12,17 @@ export const GlobalStyle = createGlobalStyle`
         }
 
         ::-webkit-scrollbar-track {
-            background-color: ${({theme}) => theme.light_purple};
+            background-color: ${({ theme }) => theme.light_purple};
         }
 
         ::-webkit-scrollbar-thumb {
-            background-color: ${({theme}) => theme.medium_purple};
+            background-color: ${({ theme }) => theme.medium_purple};
             border-radius: 10px;
         }
+    }
+
+    button{
+        cursor: pointer;
     }
 
     .disable-text-selection {
@@ -29,4 +33,4 @@ export const GlobalStyle = createGlobalStyle`
         -khtml-user-select: none;
         user-select:none;
     }
-`
+`;
