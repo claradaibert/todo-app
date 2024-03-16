@@ -25,7 +25,6 @@ function MainPage() {
       }
     ]);
     const completedTasks = taskList.filter(task => task.done);
-    console.log(completedTasks, 'completedTasks');
     const undoneTasksNumber = taskList.length - completedTasks.length;
 
     return (

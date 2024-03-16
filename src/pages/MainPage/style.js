@@ -21,7 +21,7 @@ export const Container = styled.div`
 
   .header {
     font: normal normal 3rem "Abril Fatface", cursive;
-    color: ${(props) => props.theme.mediumPurple};
+    color: ${(props) => props.theme.darkPurple};
     margin-left: 3%;
     margin-top: 1rem;
   }
