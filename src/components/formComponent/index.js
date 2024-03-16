@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import * as yup from "yup";
 import { toast } from "react-toastify";
 
@@ -7,8 +7,6 @@ import Input from "../Input";
 import { FormContainer } from "./style";
 
 function FormComponent({taskList, setTaskList }) {
-  // Local refs
-  const descriptionRef = useRef(null);
 
   const [formValues, setFormValues] = useState({
     title: "",
@@ -34,13 +32,12 @@ function FormComponent({taskList, setTaskList }) {
         throw "failed validation";
       });
 
-      setTaskList(prev => [...prev, formValues]);
+      setTaskList([...taskList, formValues]);
       setFormValues({
         title: "",
         description: "",
       })
     }catch {
-      console.log('error');
     }
 
   };
