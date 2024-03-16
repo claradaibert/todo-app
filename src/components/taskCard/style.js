@@ -66,4 +66,8 @@ export const Container = styled.div`
     height: 2rem;
     background-color: transparent;
   }
+
+  .done {
+    text-decoration: line-through;
+  }
 `;

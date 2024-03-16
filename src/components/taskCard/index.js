@@ -1,6 +1,7 @@
 import { Container } from "./style";
 
 function TaskCard({ task, setTaskList, taskList }) {
+  const showDoneClass = task.done ? 'done' : '';
   const handleDelete = () => {
     const filteredTaskList = taskList.filter(
       (item) => task.title !== item.title
@@ -10,16 +11,19 @@ function TaskCard({ task, setTaskList, taskList }) {
   };
 
   const handleDoneTask = () => {
-    const indexOfTask = taskList.indexOf(task);
-    const newTaskList = taskList;
-    newTaskList[indexOfTask].done = true;
+    const currentTask = task;
+    currentTask.done = true;
+    const newTaskList = taskList.filter(
+      (item) => task.title !== item.title
+    );;
+    newTaskList.push(currentTask);
     setTaskList(newTaskList);
   };
 
   return (
     <Container>
-      <div className="taskTitle">{task.title}</div>
-      <div className="taskDescription">{task?.description}</div>
+      <div className={`taskTitle ${showDoneClass}`}>{task.title}</div>
+      <div className={`taskDescription ${showDoneClass}`}>{task?.description}</div>
       <div className="buttonArea">
         <button
           type="button"
