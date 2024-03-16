@@ -32,7 +32,7 @@ function FormComponent({taskList, setTaskList }) {
         throw "failed validation";
       });
 
-      setTaskList([...taskList, formValues]);
+      setTaskList([formValues, ...taskList]);
       setFormValues({
         title: "",
         description: "",
