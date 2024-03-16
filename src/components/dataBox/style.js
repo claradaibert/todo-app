@@ -45,7 +45,7 @@ export const IconContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #7f6e9a 0%, #af9ccb 0.01%, #e1cdfe 100%);
+  background: linear-gradient(135deg, #7f6e9a 0.02%, #e1cdfe 100%);
   color: white;
   font-size: 30px;
   bottom: 20px;
