@@ -31,11 +31,18 @@ export const Container = styled.div`
   .title {
     font-size: 17px;
     font-weight: 400;
+    color: black;
   }
 
   .icon {
     font-size: 30px;
+    position: relative;
     color: ${(props) => props.theme.darkPurple};
+    transition: 300ms ease-out;
     cursor: pointer;
+  }
+
+  .open {
+    transform: rotateZ(180deg);
   }
 `;
