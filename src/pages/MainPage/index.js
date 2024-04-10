@@ -1,9 +1,13 @@
 import { useState } from 'react';
+import {FaCheck} from 'react-icons/fa';
+import {CgClipboard} from 'react-icons/cg';
+
+// Component import
 import TaskBox from '../../components/taskBox';
 import DataBox from '../../components/DataBox';
 import AddTask from '../../components/addTask';
-import {FaCheck} from 'react-icons/fa';
-import {CgClipboard} from 'react-icons/cg';
+
+// Style import
 import { Container } from './style';
 
 function MainPage() {
